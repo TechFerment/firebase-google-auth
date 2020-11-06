@@ -99,28 +99,25 @@ Follow these steps:
     ```
 
     ##### 2.2.3) Set an authentication state observer and get user data
+    
+    For each of your app's pages that need information about the signed-in user, you can call `onAuthStateChanged` method. When a user successfully signs in, you can get information about the user.
 
-        For each of your app's pages that need information about the signed-in user, attach an observer to the global authentication object. This observer gets called whenever the user's sign-in state changes.
-
-        Attach the observer using the `onAuthStateChanged` method. When a user successfully signs in, you can get information about the user in the observer.
-
-
-        ```js
+       ```js
         firebase.auth().onAuthStateChanged(function(user) {
          if (user) {
-        // User is signed in.
-        var displayName = user.displayName;
-        var email = user.email;
-        var emailVerified = user.emailVerified;
-        var photoURL = user.photoURL;
-        var isAnonymous = user.isAnonymous;
-        var uid = user.uid;
-        var providerData = user.providerData;
-        // ...
+            // User is signed in.
+            var displayName = user.displayName;
+            var email = user.email;
+            var emailVerified = user.emailVerified;
+            var photoURL = user.photoURL;
+            var isAnonymous = user.isAnonymous;
+            var uid = user.uid;
+            var providerData = user.providerData;
+            // ...
 
-        } else {
-        // User is signed out.
-        // ...
-        }
+         } else {
+            // User is signed out.
+            // ...
+          }
         });
-    ```
+       ```
